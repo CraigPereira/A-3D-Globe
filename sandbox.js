@@ -14,6 +14,9 @@ const init = () => {
 
   renderer.setSize(window.innerWidth, window.innerHeight);
 
+  // Orbital controls
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
   document.body.appendChild(renderer.domElement);
 
   const geometry = new THREE.SphereGeometry(5, 32, 32);
@@ -31,7 +34,7 @@ const animate = () => {
   requestAnimationFrame(animate);
 
   // sphere.rotation.x += 0.01;
-  sphere.rotation.y += 0.005;
+  // sphere.rotation.y += 0.005;
 
   renderer.gammaFactor = 2.2;
   renderer.gammaOutput = true;
