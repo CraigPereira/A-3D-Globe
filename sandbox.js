@@ -3,6 +3,10 @@ let scene, camera, renderer, sphere;
 const init = () => {
   scene = new THREE.Scene();
 
+  //Background texture/ Img
+  const loader = new THREE.TextureLoader();
+  loader.load("textures/space.png", (texture) => (scene.background = texture));
+
   camera = new THREE.PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
@@ -34,10 +38,10 @@ const animate = () => {
   requestAnimationFrame(animate);
 
   // sphere.rotation.x += 0.01;
-  // sphere.rotation.y += 0.005;
+  sphere.rotation.y += 0.001;
 
-  renderer.gammaFactor = 2.2;
-  renderer.gammaOutput = true;
+  // renderer.gammaFactor = 2.2;
+  // renderer.gammaOutput = true;
 
   renderer.render(scene, camera);
 };
